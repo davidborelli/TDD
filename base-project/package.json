@@ -1,0 +1,16 @@
+{
+  "name": "base-project",
+  "version": "1.0.0",
+  "description": "TDD Course William Justen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "David Borelli <david_borelli@live.com> (https://dborelli.com.br/)",
+  "license": "MIT"
+}
