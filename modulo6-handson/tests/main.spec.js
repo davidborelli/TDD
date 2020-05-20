@@ -1,34 +1,34 @@
 const expect = require("chai").expect;
+const calc = require("../src/main");
 
-let arr = [];
+/*
+01 - Smoke test (Simples, verificar se os metodos existem)
+*/
 
-beforeEach(function () {
-  arr = [1, 2, 3];
-});
+describe("calc", function () {
+  describe("Smoke tests", function () {
+    it("should exist the calc lib", function () {
+      expect(calc).to.be.exist;
+    });
 
-describe("Main", function () {
-  // Smoke test, serve para testar tipos, e se ela existe, teste básico
-  it("should be an array", function () {
-    expect(arr).to.be.a("array");
-  });
+    it("should exists the method 'sum'", function () {
+      expect(calc.sum).to.exist;
+      expect(calc.sum).to.be.a("function");
+    });
 
-  it("should have array", function () {
-    arr.push(4);
-    expect(arr).to.have.lengthOf(4);
-  });
+    it("should exists the method 'sub'", function () {
+      expect(calc.sub).to.exist;
+      expect(calc.sub).to.be.a("function");
+    });
 
-  it("should remove the value from arrau", function () {
-    arr.pop();
+    it("should exists the method 'mult'", function () {
+      expect(calc.mult).to.exist;
+      expect(calc.mult).to.be.a("function");
+    });
 
-    expect(arr).to.not.include(3);
-  });
-
-  it("should return true when pop form array", function () {
-    expect(arr.pop() === 3).to.be.true;
-  });
-
-  it("should be array size 3", function () {
-    arr.pop();
-    expect(arr).to.have.lengthOf(2);
+    it("should exists the method 'div'", function () {
+      expect(calc.div).to.exist;
+      expect(calc.div).to.be.a("function");
+    });
   });
 });
