@@ -1,2 +1,1 @@
-a = 3;
-const b = "oi";
+const a = 10;
