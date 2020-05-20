@@ -1,7 +1,7 @@
-const fetchData = url => {
+const fetchData = (url) => {
   fetch(url)
-    .then(data => data.json())
-    .then(data => load.next(data));
+    .then((data) => data.json())
+    .then((data) => load.next(data));
 };
 
 function* loadGit() {
@@ -9,13 +9,13 @@ function* loadGit() {
   const repos = yield fetchData(
     "https://api.github.com/users/davidborelli/repos"
   );
-  console.log(repos);
+  console.log("repos", repos);
 
   console.log("Carregando os seguidores...");
   const followers = yield fetchData(
     "https://api.github.com/users/davidborelli/followers"
   );
-  console.log(followers);
+  console.log("followers", followers);
 }
 
 const load = loadGit();
