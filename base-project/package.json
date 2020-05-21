@@ -8,11 +8,6 @@
     "test": "mocha tests/**/*.spec.js",
     "test:tdd": "mocha tests/**/*.spec.js --require babel-register -w --no-verify"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn lint"
-    }
-  },
   "keywords": [
     "js",
     "tdd",
