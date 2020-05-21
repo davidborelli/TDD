@@ -4,9 +4,9 @@
   "description": "TDD Course William Justen",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src/*.js --require babel-register",
+    "lint": "./node_modules/.bin/eslint src/*.js --require babel-register --no-verify",
     "test": "mocha tests/**/*.spec.js",
-    "test:tdd": "mocha tests/**/*.spec.js --require babel-register -w"
+    "test:tdd": "mocha tests/**/*.spec.js --require babel-register -w --no-verify"
   },
   "husky": {
     "hooks": {
