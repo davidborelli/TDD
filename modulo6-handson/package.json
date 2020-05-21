@@ -4,9 +4,9 @@
   "description": "TDD Course William Justen",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src/*.js",
+    "lint": "./node_modules/.bin/eslint src/*.js --require babel-register",
     "test": "mocha tests/**/*.spec.js",
-    "test:tdd": "mocha tests/**/*.spec.js -w"
+    "test:tdd": "mocha tests/**/*.spec.js --require babel-register -w"
   },
   "husky": {
     "hooks": {
@@ -21,6 +21,8 @@
   "author": "David Borelli <david_borelli@live.com> (https://dborelli.com.br/)",
   "license": "MIT",
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
