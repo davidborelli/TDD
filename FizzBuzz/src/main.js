@@ -1,9 +1,8 @@
 const FizzBuzz = (num) => {
-  return (
-    (num % 3 === 0 && num % 5 === 0 && "FizzBuzz") ||
-    (num % 3 === 0 && "Fizz") ||
-    (num % 5 === 0 && "Buzz") ||
-    num
-  );
+  if (num === 0) return 0;
+  if (num % 3 === 0 && num % 5 === 0) return "FizzBuzz";
+  if (num % 3 === 0) return "Fizz";
+  if (num % 5 === 0) return "Buzz";
+  return num;
 };
 export default FizzBuzz;
