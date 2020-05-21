@@ -1,0 +1,39 @@
+{
+  "name": "spotify-wrapper",
+  "version": "1.0.0",
+  "description": "Um Wrapper para trabalhar com Spotify Web API",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "test": "mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "mocha tests/**/*.spec.js --require babel-register -w",
+    "test:coverage": "nyc yarn test"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "David Borelli <david_borelli@live.com> (https://dborelli.com.br/)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.5",
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1"
+  }
+}
