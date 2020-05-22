@@ -17,6 +17,16 @@ import {
 } from "../src/main";
 
 describe("Spotify Wrapper", () => {
+  let fetchedStub = "";
+
+  beforeEach(() => {
+    fetchedStub = sinon.stub(global, "fetch");
+  });
+
+  afterEach(() => {
+    fetchedStub.restore();
+  });
+
   describe("Smoke Tests", () => {
     it("should exist the search method", () => {
       expect(search).to.exist;
@@ -41,26 +51,32 @@ describe("Spotify Wrapper", () => {
 
   describe("Generic Search", () => {
     it("should call fetch function ", () => {
-      const fetchedStub = sinon.stub(global, "fetch");
       const artists = search();
 
       expect(fetchedStub).to.have.been.calledOnce;
-
-      fetchedStub.restore();
     });
 
-    it("should receive the correct url to fetch", () => {
-      const fetchedStub = sinon.stub(global, "fetch");
-      const artists = search("Slipknot", "artist");
+    it("should call fetch with the correct URL", () => {
+      context("passing one type", () => {
+        const artists = search("Slipknot", "artist");
 
-      expect(fetchedStub).to.have.been.calledWith(
-        "https://api.spotify.com/v1/search?q=Slipknot&type=artist"
-      );
+        expect(fetchedStub).to.have.been.calledWith(
+          "https://api.spotify.com/v1/search?q=Slipknot&type=artist"
+        );
 
-      const albums = search("Slipknot", "album");
-      expect(fetchedStub).to.have.been.calledWith(
-        "https://api.spotify.com/v1/search?q=Slipknot&type=album"
-      );
+        const albums = search("Slipknot", "album");
+        expect(fetchedStub).to.have.been.calledWith(
+          "https://api.spotify.com/v1/search?q=Slipknot&type=album"
+        );
+      });
+
+      context("passing more then one type", () => {
+        const artistAndAlbums = search("Slipknot", ["artist", "album"]);
+
+        expect(fetchedStub).to.have.been.calledWith(
+          "https://api.spotify.com/v1/search?q=Slipknot&type=artist,album"
+        );
+      });
     });
   });
 });
